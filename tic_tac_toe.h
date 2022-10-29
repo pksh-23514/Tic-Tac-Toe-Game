@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <limits.h>
 
 #define SIZE 3
 #define FIRST 'O'
@@ -15,6 +16,10 @@
 #define FAILURE -1
 
 /* Function Declarations */
+
+void play_game ();
+
+void run_tests ();
 
 void play_game_single (int);
 
@@ -27,5 +32,11 @@ void play_game_double ();
 int check_cell (char [SIZE][SIZE], int);
 
 void mark_board (char [SIZE][SIZE], char, int);
+
+void demark_board (char [SIZE][SIZE], int);
+
+char change_marker (char);
+
+int optimized_move (char [SIZE][SIZE], char, int);
 
 #endif

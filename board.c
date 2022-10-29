@@ -37,7 +37,7 @@ void print_board (char board [SIZE][SIZE])
 int check_cell (char board [SIZE][SIZE], int pos)
 {
 	int row = (pos - 1) / SIZE;		//To get the Row position of the Cell on the Board.
-	int col = (pos - 1) / SIZE;		//To get the Column position of the Cell on the Board.
+	int col = (pos - 1) % SIZE;		//To get the Column position of the Cell on the Board.
 
 	if (board [row][col] == '*')	//If the give Cell is marked as '*', then it is Empty.
 		return SUCCESS;
@@ -48,9 +48,18 @@ int check_cell (char board [SIZE][SIZE], int pos)
 void mark_board (char board [SIZE][SIZE], char marker, int pos)
 {
 	int row = (pos - 1) / SIZE;
-	int col = (pos - 1) / SIZE;
+	int col = (pos - 1) % SIZE;
 
 	board [row][col] = marker;	//To mark the Particular Cell position on the Board with the given Marking.
+	return;
+}
+
+void demark_board (char board [SIZE][SIZE], int pos)
+{
+	int row = (pos - 1) / SIZE;
+	int col = (pos - 1) % SIZE;
+
+	board [row][col] = '*';		//To de-mark the Particular Cell position on the Board.
 	return;
 }
 
