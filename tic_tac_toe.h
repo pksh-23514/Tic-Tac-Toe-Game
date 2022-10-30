@@ -22,21 +22,19 @@ void play_game ();
 void run_tests ();
 
 void play_game_single (int);
+int optimized_move (char [SIZE][SIZE], char, int);
 
 void initialize_board (char [SIZE][SIZE]);
-
 void print_board (char [SIZE][SIZE]);
+int check_cell (char [SIZE][SIZE], int);
+void mark_board (char [SIZE][SIZE], char, int);
+void demark_board (char [SIZE][SIZE], int);
+char change_marker (char);
+int game_over (char [SIZE][SIZE]);
+int row_win (char [SIZE][SIZE]);
+int col_win (char [SIZE][SIZE]);
+int diagonal_win (char [SIZE][SIZE]);
 
 void play_game_double ();
-
-int check_cell (char [SIZE][SIZE], int);
-
-void mark_board (char [SIZE][SIZE], char, int);
-
-void demark_board (char [SIZE][SIZE], int);
-
-char change_marker (char);
-
-int optimized_move (char [SIZE][SIZE], char, int);
 
 #endif

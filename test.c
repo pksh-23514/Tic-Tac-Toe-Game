@@ -35,5 +35,32 @@ void run_tests ()
 	}
 	print_board (board);
 
+	/* Testing for the Ways in which the Game can be Over */
+	marker = FIRST;
+
+	for (int i = 1; i <= SIZE; i++)				//Horizontal Win for the Player.
+		mark_board (board, marker, i);
+	print_board (board);
+	if ((game_over (board)) == SUCCESS)
+		printf ("Game Over!\n");
+	initialize_board (board);
+
+	for (int i = 1; i <= (SIZE * SIZE); i += 3)		//Vertical Win for the Player.
+		mark_board (board, marker, i);
+	print_board (board);
+	if ((game_over (board)) == SUCCESS)
+		printf ("Game Over!\n");
+	initialize_board (board);
+
+	for (int i = 1; i <= (SIZE * SIZE); i += 4)		//Diagonal Win for the Player.
+		mark_board (board, marker, i);
+	print_board (board);
+	if ((game_over (board)) == SUCCESS)
+		printf ("Game Over!\n");
+
+	/* Test File: single_player.c */
+
+	//play_game_single (USER);
+
 	return;
 }

@@ -71,3 +71,52 @@ char change_marker (char marker)
 		marker = FIRST;
 	return marker;
 }
+
+int row_win (char board [SIZE][SIZE])
+{
+	for (int i = 0; i < SIZE; i++)
+	{
+		/* If any of the Player marks all the cells of a particular Row on the Board */
+		if ((board [i][0] == board [i][1]) && (board [i][1] == board [i][2]) && (board [i][0] != '*'))
+			return SUCCESS;
+	}
+
+	return FAILURE;
+}
+
+int col_win (char board [SIZE][SIZE])
+{
+	for (int i = 0; i < SIZE; i++)
+	{
+		/* If any of the Player marks all the cells of a particular Column on the Board */
+		if ((board [0][i] == board [1][i]) && (board [1][i] == board [2][i]) && (board [0][i] != '*'))
+			return SUCCESS;
+	}
+
+	return FAILURE;
+}
+
+int diagonal_win (char board [SIZE][SIZE])
+{
+	/* If any of the Player marks all the cells along the Principal Diagonal on the Board */
+	if ((board [0][0] == board [1][1]) && (board [1][1] == board [2][2]) && (board [0][0] != '*'))
+		return SUCCESS;
+
+	if ((board [0][2] == board [1][1]) && (board [1][1] == board [2][0]) && (board [0][2] != '*'))
+		return SUCCESS;
+
+	return FAILURE;
+}
+
+int game_over (char board [SIZE][SIZE])
+{
+	int (*win [3]) (char [SIZE][SIZE]) = {&row_win, &col_win, &diagonal_win};	//If a Player wins the game by any of the above means; the Game is Over.
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (((*win [i]) (board)) == SUCCESS)	//If any of the function call returns SUCCESS, the Game is Over.
+			return SUCCESS;
+	}
+
+	return FAILURE;
+}
