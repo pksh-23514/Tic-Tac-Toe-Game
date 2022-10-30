@@ -10,9 +10,12 @@ void initialize_board (char board [SIZE][SIZE])
 		}
 	}
 
-	printf ("INFO: While playing your Turn; please enter the Cell number between 1 - 9 to choose the Cell in which you want to mark your Move.\n");
+	printf ("\t\t\t\t\t\t INSTRUCTIONS\n");
+	printf("---------------------------------------------------------------------------------------------------------------\n");
+	printf ("INFO: While playing your Turn; please enter the Cell number between 1-9 to choose the Cell to mark your Move.\n");
 	printf ("INFO: The Cells are numbered 1 to 9 sequentially Row-wise.\n");
 	printf ("INFO: The Markers are as follows: '*' -> Empty Cell, 'X' / 'O' -> Filled Cell.\n");
+	printf("---------------------------------------------------------------------------------------------------------------\n");
 	return;
 }
 
@@ -30,6 +33,7 @@ void print_board (char board [SIZE][SIZE])
 
 		printf ("\n-------------\n");
 	}
+	printf ("\n");
 
 	return;
 }

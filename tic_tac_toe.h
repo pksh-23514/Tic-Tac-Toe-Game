@@ -23,6 +23,7 @@ void run_tests ();
 
 void play_game_single (int);
 int optimized_move (char [SIZE][SIZE], char, int);
+int calculate_score (char [SIZE][SIZE], char, int, int);
 
 void initialize_board (char [SIZE][SIZE]);
 void print_board (char [SIZE][SIZE]);

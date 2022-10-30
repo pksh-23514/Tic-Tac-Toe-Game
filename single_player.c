@@ -14,9 +14,9 @@ void play_game_single (int move)
 	/* The loop shall run till either the Player or Computer has won the game or the number of Moves is not equal to number of Cells on the Tic Tac Toe Board. */
 	while ((game_over (board) == FAILURE) && (move_count != (SIZE * SIZE)))
 	{
-		if (move == USER)
+		if (move == USER)	//If the Current Move belongs to the User.
 		{
-			printf ("Enter the Cell position (between 1 - 9) where you would want to mark your Move: ");
+			printf ("INPUT: Enter the Cell position (between 1 - 9) where you would like to mark your Move: ");
 			scanf ("%d", &cell_num);	//To ask the User to enter the Cell position to be marked.
 
 			if ((cell_num < 0) || (cell_num > 9))	//Error Handling.
@@ -28,27 +28,46 @@ void play_game_single (int move)
 			{
 				if (check_cell (board, cell_num) == FAILURE)	//To check if the Cell position is Empty or Marked already.
 				{
-					printf ("INFO: The Cell position is already occupied. Please enter any other Cell position.\n");
+					printf ("ERROR: The Cell position is already occupied. Please enter any other Cell position.\n");
 					continue;	//To ask the User to re-enter the Cell position.
 				}
 				else
 				{
-					printf ("INFO: The USER has marked his Move as %c in the Cell position: %d.\n", marker, cell_num);
+					printf ("INFO: You have marked your Move as %c in the Cell position: %d.\n", marker, cell_num);
 
 					mark_board (board, marker, cell_num);	//To mark the 'cell_num' with the 'marker' on the Board.
 
 					print_board (board);
-
 					move = COMPUTER;			//To update the next Move as Computer's chance.
 					marker = change_marker (marker);	//To update the Marking for the next Move by the Computer.
 					move_count += 1;			//To update the number of Moves taken by 1.
 				}
 			}
 		}
+		else	//If the Current Move belongs to the Computer.
+		{
+			cell_num = optimized_move (board, marker, move_count);	//To check which Move by Computer will only lead to Win or Draw for the Computer.
 
-		//write for the Computer's move.
+			printf ("INFO: The COMPUTER has marked the Move as %c in the Cell position: %d.\n", marker, cell_num);
+
+			mark_board (board, marker, cell_num);	//To mark the 'cell_num' with the 'marker' on the Board.
+
+			print_board (board);
+			move = USER;				//To update the next Move as User's chance.
+			marker = change_marker (marker);	//To update the Marking for the next Move by the User.
+			move_count += 1;			//To update the number of Moves taken by 1.
+		}
 	}
 
+	if (((game_over (board)) == FAILURE) && (move_count == (SIZE * SIZE)))
+		printf ("INFO: The Game ended in a Draw!\n");
+	else
+	{
+		if (move == COMPUTER)
+			printf ("INFO: YOU have Won the Game!\n");
+		else
+			printf ("INFO: COMPUTER has Won the Game!\n");
+	}
 
 	return;
 }
