@@ -8,12 +8,12 @@
 int optimized_move (char board [SIZE][SIZE], char marker, int move_count)
 {
 	int pos = -1;				//Random Cell position to be Marked by the Computer.
-	int max_score = INT_MIN;	//Random Best Score for the Move to be taken by the Computer.
+	int max_score = INT_MIN;		//Random Best Score for the Move to be taken by the Computer.
 	int curr_score;
 
 	for (int i = 1; i <= (SIZE * SIZE); i++)
 	{
-		if (check_cell (board, i) == SUCCESS)	//If the Cell position is empty, it will be Marked by the Computer.
+		if (check_cell (board, i) == SUCCESS)		//If the Cell position is empty, it will be Marked by the Computer.
 		{
 			mark_board (board, marker, i);		//Mark the particular Cell position with the Marker of the Computer.
 
@@ -31,5 +31,5 @@ int optimized_move (char board [SIZE][SIZE], char marker, int move_count)
 		}
 	}
 
-	return pos;		//Return the Best Possible Move by the Computer.
+	return pos;	//Return the Best Possible Move by the Computer.
 }
