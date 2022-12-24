@@ -58,7 +58,7 @@ int check_cell (char board [SIZE][SIZE], int pos)
 	int row = (pos - 1) / SIZE;		//To get the Row position of the Cell on the Board.
 	int col = (pos - 1) % SIZE;		//To get the Column position of the Cell on the Board.
 
-	if (board [row][col] == '*')	//If the give Cell is marked as '*', then it is Empty.
+	if (board [row][col] == '*')		//If the give Cell is marked as '*', then it is Empty.
 		return SUCCESS;
 	else
 		return FAILURE;
@@ -99,10 +99,10 @@ void demark_board (char board [SIZE][SIZE], int pos)
  */
 char change_marker (char marker)
 {
-	if (marker == FIRST)	//If the Current Marker belongs to the User-1; switch the Marker to User-2.
+	if (marker == FIRST)			//If the Current Marker belongs to the User-1; switch the Marker to User-2.
 		marker = SECOND;
-	else
-		marker = FIRST;		//If the Current Marker belongs to the User-2; switch the Marker to User-1.
+	else					//If the Current Marker belongs to the User-2; switch the Marker to User-1.
+		marker = FIRST;
 	return marker;
 }
 
