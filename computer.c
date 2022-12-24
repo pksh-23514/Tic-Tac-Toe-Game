@@ -1,7 +1,7 @@
 #include "tic_tac_toe.h"
 
 /* 
-   To calculate the Best possible Move to be played by the Computer in One-Player Option.
+   To calculate the Best possible Move to be played by the Computer in Single Player Option.
    Input - The Board Array, the Current Marker and the Number of Moves already played in the Game.
    Output - The Cell position for the Best possible Move.
  */
