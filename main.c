@@ -3,13 +3,13 @@
 /* Main function */
 int main (int argc, char* argv [])
 {
-	if (argc < 2)				//If there are No arguments passed in the Command Line; proceed for starting the Game.
+	if (argc < 2)			//If there are No arguments passed in the Command Line; proceed for starting the Game.
 	{
 		play_game ();
 	}
-	else						//If '-test' option is passed in the Command Line; proceed for testing the various functionalities.
+	else				//If '--test' option is passed in the Command Line; proceed for testing the various functionalities.
 	{
-		//run_tests ();
+		run_tests ();
 	}
 
 	return 0;
@@ -22,15 +22,15 @@ int main (int argc, char* argv [])
  */
 void play_game ()
 {
-	int choice;
-	char move;
+	int choice;		//To read the User's Choice.
+	char move;		//To store the First Move taken.
 	do
 	{
 		printf("\n---------------------------------------------------------------------------------------------------------------\n\n");
 		printf("\t\t\t\t\t\t TIC-TAC-TOE\n");
 		printf("\n---------------------------------------------------------------------------------------------------------------\n");
 		printf("1. YOU vs COMPUTER\n");
-		printf("2. YOU vs PLAYER\n");
+		printf("2. USER-1 vs USER-2\n");
 		printf("3. EXIT");
 		printf("\n---------------------------------------------------------------------------------------------------------------\n");
 		printf ("INPUT: Enter your Choice: ");
@@ -60,9 +60,23 @@ void play_game ()
 				break;
 			case 2:		/* Double Player Option */
 				{
-					printf ("INFO: Does Player-1 wants to take the First Move : Y / N?\n");
+					printf ("INFO: Does USER-1 wants to take the First Move : Y / N?\n");
 					printf ("INPUT: Enter your Choice: ");
 					scanf (" %c", &move);
+
+					if (toupper (move) == 'Y')  	//If the User-1 takes the First chance to play.
+					{
+						printf ("INFO: The First move will be taken by the USER-1.\n");
+						printf("---------------------------------------------------------------------------------------------------------------\n");
+						play_game_double (USER1);
+					}
+					else                		//If the User-1 doesn't takes the First chance to play.
+					{
+						printf ("INFO: The First move will be taken by the USER-2.\n");
+						printf("---------------------------------------------------------------------------------------------------------------\n");
+						play_game_double (USER2);
+					}
+
 				}
 				break;
 			case 3:		/* Exit the Game */
