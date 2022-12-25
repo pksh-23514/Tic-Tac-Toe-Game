@@ -1,5 +1,10 @@
 #include "tic_tac_toe.h"
 
+/*
+   To Run the Unit-Tests on some Functions of the Program to verify their Correctness.
+   Input - NIL.
+   Output - NIL.
+ */
 void run_tests ()
 {
 	printf ("Testing for the Code Begins!\n");
@@ -60,7 +65,13 @@ void run_tests ()
 
 	/* Test File: single_player.c */
 
-	//play_game_single (USER);
+	play_game_single (USER);			//The First Move is taken by the User.
+	play_game_single (COMPUTER);			//The First Move is taken by the Computer.
+
+	/* Test File: double_player.c */
+
+	play_game_double (USER1);			//The First Move is taken by the User-1.
+	play_game_double (USER2);			//The First Move is taken by the User-2.
 
 	return;
 }
