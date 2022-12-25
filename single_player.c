@@ -1,5 +1,10 @@
 #include "tic_tac_toe.h"
 
+/*
+   To Play the Tic-Tac-Toe Game in the Single Player Mode.
+   Input - The Player to take the First Move.
+   Output - NIL.
+ */
 void play_game_single (int move)
 {
 	char board [SIZE][SIZE];	//To store the Moves of both the Players.
@@ -7,11 +12,11 @@ void play_game_single (int move)
 	int cell_num = 0;		//To store the Cell position on the Board.
 	char marker = FIRST;		//To store the Marking to be made on the particular Cell of the Board.
 
-	initialize_board (board);	//To initialize the complete Tic Tac Toe board as Empty initially.
+	initialize_board (board);	//To initialize the complete Tic-Tac-Toe board as Empty initially.
 
-	print_board (board);		//To print the Empty Tic Tac Toe board.
+	print_board (board);		//To print the Empty Tic-Tac-Toe board.
 
-	/* The loop shall run till either the Player or Computer has won the game or the number of Moves is not equal to number of Cells on the Tic Tac Toe Board. */
+	/* The loop shall run till either the Player or Computer has won the game or the number of Moves is not equal to number of Cells on the Tic-Tac-Toe Board. */
 	while ((game_over (board) == FAILURE) && (move_count != (SIZE * SIZE)))
 	{
 		if (move == USER)	//If the Current Move belongs to the User.
@@ -59,13 +64,14 @@ void play_game_single (int move)
 		}
 	}
 
+	/* If the Game ended without any User winning, display the Draw message */
 	if (((game_over (board)) == FAILURE) && (move_count == (SIZE * SIZE)))
 		printf ("INFO: The Game ended in a Draw!\n");
-	else
+	else	//Otherwise, check for the Player having the Current Move.
 	{
-		if (move == COMPUTER)
+		if (move == COMPUTER)		//If the Current Move belongs to the Computer, then User has ended the Game with a Win on the Previous Move.
 			printf ("INFO: YOU have Won the Game!\n");
-		else
+		else				//If the Current Move belongs to the User, then Computer has ended the Game with a Win on the Previous Move.
 			printf ("INFO: COMPUTER has Won the Game!\n");
 	}
 
