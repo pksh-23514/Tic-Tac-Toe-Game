@@ -1,19 +1,25 @@
 #include "tic_tac_toe.h"
 
-int main(int argc, char* argv[])
+/* Main function */
+int main (int argc, char* argv [])
 {
-	if (argc < 2)
+	if (argc < 2)				//If there are No arguments passed in the Command Line; proceed for starting the Game.
 	{
 		play_game ();
 	}
-	else
+	else						//If '-test' option is passed in the Command Line; proceed for testing the various functionalities.
 	{
 		//run_tests ();
 	}
 
 	return 0;
 }
-#if 1
+
+/*
+   To Execute the Tic-Tac-Toe game in Single or Double Player Mode.
+   Input - NIL.
+   Output - NIL.
+ */
 void play_game ()
 {
 	int choice;
@@ -32,7 +38,7 @@ void play_game ()
 
 		switch (choice)
 		{
-			case 1:
+			case 1:		/* Single Player Option */
 				{
 					printf ("INFO: Do you want to take the First Move : Y / N ?\n");
 					printf ("INPUT: Enter your Choice: ");
@@ -52,12 +58,14 @@ void play_game ()
 					}
 				}
 				break;
-			case 2:
+			case 2:		/* Double Player Option */
 				{
-					//
+					printf ("INFO: Does Player-1 wants to take the First Move : Y / N?\n");
+					printf ("INPUT: Enter your Choice: ");
+					scanf (" %c", &move);
 				}
 				break;
-			case 3:
+			case 3:		/* Exit the Game */
 				{
 					printf("\n---------------------------------------------------------------------------------------------------------------\n");
 					printf ("\t\t\t\t\t\t THANK YOU!\n");
@@ -72,4 +80,3 @@ void play_game ()
 
 	return;
 }
-#endif
