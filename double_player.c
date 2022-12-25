@@ -1,5 +1,10 @@
 #include "tic_tac_toe.h"
 
+/*
+   To Play the Tic-Tac-Toe Game in the Double Player Mode.
+   Input - The Player to take the First Move.
+   Output - NIL.
+ */
 void play_game_double (int move)
 {
 	char board [SIZE][SIZE];	//To store the Moves of both the Players.
@@ -9,9 +14,9 @@ void play_game_double (int move)
 
 	initialize_board (board);	//To initialize the complete Tic-Tac-Toe board as Empty initially.
 
-	print_board (board);		//To print the Empty Tic Tac Toe board.
+	print_board (board);		//To print the Empty Tic-Tac-Toe board.
 
-	/* The loop shall run till either the Player or Computer has won the game or the number of Moves is not equal to number of Cells on the Tic Tac Toe Board. */
+	/* The loop shall run till either the Player or Computer has won the game or the number of Moves is not equal to number of Cells on the Tic-Tac-Toe Board. */
 	while ((game_over (board) == FAILURE) && (move_count != (SIZE * SIZE)))
 	{
 		if (move == USER1)	//If the Current Move belongs to the User-1.
